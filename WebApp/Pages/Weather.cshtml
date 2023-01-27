@@ -6,6 +6,14 @@
 
 <h1>@ViewData["Title"]</h1>
 
-<div>
-    
-</div>
+<table>
+    @foreach (var info in Model.WeatherInfos)
+    {
+        <tr>
+            <td>@info.Date</td>
+            <td>@info.Summary</td>
+            <td>@info.TemperatureF</td>
+            <td>@info.TemperatureC</td>
+        </tr>
+    }
+</table>
