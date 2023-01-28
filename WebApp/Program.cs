@@ -1,7 +1,12 @@
+using WebApp.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+builder.Services.Configure<IdentityServerSettings>(builder.Configuration.GetSection("IdentityServerSettings"));
+builder.Services.AddSingleton<ITokenService, TokenService>();
 
 var app = builder.Build();
 

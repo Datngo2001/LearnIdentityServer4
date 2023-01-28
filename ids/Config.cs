@@ -67,30 +67,30 @@ namespace ids
         public static IEnumerable<IdentityResource> IdentityResources =>
           new[]
           {
-        new IdentityResources.OpenId(),
-        new IdentityResources.Profile(),
-        new IdentityResource
-        {
-          Name = "role",
-          UserClaims = new List<string> {"role"}
-        }
+            new IdentityResources.OpenId(),
+            new IdentityResources.Profile(),
+            new IdentityResource
+            {
+              Name = "role",
+              UserClaims = new List<string> {"role"}
+            }
           };
 
         public static IEnumerable<ApiScope> ApiScopes =>
           new[]
           {
-        new ApiScope("weatherapi.read"),
-        new ApiScope("weatherapi.write"),
+            new ApiScope("weatherapi.read"),
+            new ApiScope("weatherapi.write"),
           };
         public static IEnumerable<ApiResource> ApiResources => new[]
         {
-      new ApiResource("weatherapi")
-      {
-        Scopes = new List<string> {"weatherapi.read", "weatherapi.write"},
-        ApiSecrets = new List<Secret> {new Secret("ScopeSecret".Sha256())},
-        UserClaims = new List<string> {"role"}
-      }
-    };
+          new ApiResource("weatherapi")
+          {
+            Scopes = new List<string> {"weatherapi.read", "weatherapi.write"},
+            ApiSecrets = new List<Secret> {new Secret("ScopeSecret".Sha256())},
+            UserClaims = new List<string> {"role"}
+          }
+        };
 
         public static IEnumerable<Client> Clients =>
           new[]
